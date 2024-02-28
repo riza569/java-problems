@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class numberpyramid {
+public class numbertriangular {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
@@ -16,12 +16,14 @@ public class numberpyramid {
     }
 }
 
-/*
-    1 
-   2 2
-  3 3 3
- 4 4 4 4
-5 5 5 5 5
 
 
- */
+/* 
+     1 
+    2 2
+   3 3 3
+  4 4 4 4
+ 5 5 5 5 5
+6 6 6 6 6 6
+ 
+*/

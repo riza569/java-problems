@@ -23,19 +23,16 @@ public class spirayoutput {
         int colEnd = m - 1;
         
         while (rowStart <= rowEnd && colStart <= colEnd) {
-            // Print the first row from the remaining rows
             for (int col = colStart; col <= colEnd; col++) {
                 System.out.print(matrix[rowStart][col] + " ");
             }
             rowStart++;
             
-            // Print the last column from the remaining columns
             for (int row = rowStart; row <= rowEnd; row++) {
                 System.out.print(matrix[row][colEnd] + " ");
             }
             colEnd--;
             
-            // Print the last row from the remaining rows
             if (rowStart <= rowEnd) {
                 for (int col = colEnd; col >= colStart; col--) {
                     System.out.print(matrix[rowEnd][col] + " ");
@@ -43,7 +40,6 @@ public class spirayoutput {
                 rowEnd--;
             }
             
-            // Print the first column from the remaining columns
             if (colStart <= colEnd) {
                 for (int row = rowEnd; row >= rowStart; row--) {
                     System.out.print(matrix[row][colStart] + " ");

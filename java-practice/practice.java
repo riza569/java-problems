@@ -1,12 +1,11 @@
 public class practice {
-    public static void printno(int n){
-        if(n==0)
-            return;
-        System.out.print(n+" ");
-        printno(n-1);
+    public static int printSum(int n){
+        if(n<=1){
+            return n;
+        } 
+        return n+printSum(n-1);    
     }
     public static void main(String[] args) {
-        printno(5);
-
+        System.out.println(printSum(5));
     }
 }

@@ -1,20 +1,19 @@
-public class shiftnumbertoright {
+public class shiftnumbertoright{
     public static void main(String[] args) {
-        int array[]={1,2,3,0,5,0,7,0,2};
-        int n=array.length;
+        int arr[]={1,2,3,4,2,7,2,8,9,1};
         int j=0;
-        for(int i=0;i<n;i++){
-         if(array[i]!=0&&array[j]==0){
-            int temp=array[i];
-            array[i]=array[j];
-            array[j]=temp;
-         }
-         if(array[j]!=0){
-            j++;
-         }
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=2 && arr[j]==2){
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+            if(arr[j]!=2){
+                j++;
+            }
+        }
+        for(int x:arr){
+            System.out.print(x);
+        }
     }
-    for(int x:array){
-
-        System.out.print(x);
-    }
-}}
+}

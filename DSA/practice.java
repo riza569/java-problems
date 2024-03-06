@@ -1,30 +1,19 @@
 public class practice {
-public static void main(String[] args) {
-    int arr[]={1,2,3,4,5,6,7};
-    int n=arr.length;
-    int sum=12;
-    int currentsum=arr[0];
-    int start=0;
-    for(int i=1;i<n;i++){
-        
-        while(currentsum>sum && start<i-1){
-            currentsum-=arr[start];
-            start++;
+
+    public static void main(String[] args) {
+        int arr[]={55,23,34,4,55,4,66,77,88};
+        int n=arr.length;
+        int j=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]!=4 && arr[j]==4){
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+            if(arr[j]!=4){
+                j++;
         }
-        if(currentsum==sum){
-            int p=i-1;
-            System.out.println("sum found at index "+start+" and "+p);
-            break;
-        }
-        if(i<n){
-            currentsum+=arr[i];
-        }
-        }
-        
-        System.out.println("no subarray");
-  
+    }
+    for(int x:arr)
+    System.out.print(x+" ");
 }}
-
-
-    
-

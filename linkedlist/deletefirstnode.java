@@ -39,6 +39,37 @@ public void display() {
     }
     System.out.println("null");
 }
+public Listnode deleteatpos(int position){
+    if(position==1){
+        Listnode temp=head;
+        head=head.next;
+        return temp;
+    }
+    else{
+        Listnode previous=head;
+        int count;
+        for(count=1;count<position-1;count++){
+            previous=previous.next;
+        }
+        Listnode current=previous.next;
+        previous.next=current.next;
+        return current;
+
+    }
+} 
+public boolean search(int searchKey){
+    if (head==null){
+        return false;
+    }
+    Listnode current=head;
+    while(current.next!=null){
+        if(current.data==searchKey){
+            return true;
+        }
+        current=current.next;
+    }
+    return false;
+}
 public static void main(String[] args) {
     deletefirstnode sll=new deletefirstnode();
     sll.head=new Listnode(10);
@@ -49,13 +80,28 @@ public static void main(String[] args) {
     second.next=third;
     third.next=fourth;
     sll.display();
-    System.out.println(sll.deletefirst().data);
-    sll.display();
-    System.out.println(sll.deletelastnode().data);
-    sll.display();
+    // System.out.println(sll.deletefirst().data);
+    // sll.display();
+    // System.out.println(sll.deletelastnode().data);
+    // sll.display();
+    // System.out.println(sll.deletelastnode().data);
+    // sll.display();
+    // System.out.println(sll.deletefirst().data);
+    // sll.display();
+    // System.out.println(sll.deleteatpos(3).data);
+    // sll.display();
+    // System.out.println(sll.deleteatpos(2).data);
+    // sll.display();
+    // System.out.println(sll.deleteatpos(1).data);
+    // sll.display();
+    // System.out.println(sll.deleteatpos(1).data);
+    // sll.display();
+    if(sll.search(11)){
+        System.out.println("found");
+    }
+    else{
+        System.out.println("not found");
+    }
 
 }
-
-
-
 }

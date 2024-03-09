@@ -168,10 +168,21 @@ public class practice {
         return mainptr;
 
     }
+    public void removeduplicate(){
+        Listnode current=head;
+        while(current!=null&&current.next!=null){
+            if(current.data==current.next.data){
+                current.next=current.next.next;
+            }
+            else{
+                current=current.next;
+            }
+        }
+    }
     public static void main(String[] args) {
         practice sll=new practice();
         sll.head=new Listnode(10);
-        Listnode second=new Listnode(11);
+        Listnode second=new Listnode(10);
         Listnode third=new Listnode(12);
         Listnode fourth=new Listnode(13);
         sll.head.next=second;
@@ -203,6 +214,8 @@ public class practice {
         System.out.println(middlenode.data);
         Listnode nthnode=sll.nthnode(2);
         System.out.println(nthnode.data);
+        sll.removeduplicate();
+        sll.display(sll.head);
 
     }
 }

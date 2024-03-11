@@ -178,43 +178,163 @@ public class practice {
                 current=current.next;
             }
         }
+
+    }
+    public void insertnodesorted(int value){
+        Listnode newnode=new Listnode(value);
+        if(head==null){
+            head=newnode;
+        }
+        Listnode current=head;
+        Listnode temp=null;
+        while(current!=null && current.data<newnode.data){
+            temp=current;
+            current=current.next;
+        }
+        newnode.next=current;
+        temp.next=newnode;
+
+    }
+    //10-->11-->12-->13-->14-->null
+    public void deletekay(int value){
+        Listnode current=head;
+        Listnode prev=null;
+        if(current!=null && current.data==value){
+            head=current.next;
+            return;
+        }
+        while(current!=null){
+            if(current.data==value){
+                prev.next=current.next;
+            }
+            prev=current;
+            current=current.next;
+        }
+    }
+    public boolean detectloop(){
+        Listnode fasstptr=head;
+        Listnode slowptr=head;
+        while(fasstptr!=null&&fasstptr.next!=null){
+            fasstptr=fasstptr.next.next;
+            slowptr=slowptr.next;
+            if(fasstptr==slowptr){
+            return true;
+            }
+        }
+        return false;
+    }
+    public void createaloopinlinkedlist(){
+        Listnode first=new Listnode(1);
+        Listnode second=new Listnode(2);
+        Listnode third=new Listnode(3);
+        Listnode fourth=new Listnode(4);
+        Listnode fifth=new Listnode(5);
+        Listnode six=new Listnode(6);
+        head=first;
+        first.next=second;
+        second.next=third;
+        third.next=fourth;
+        fourth.next=fifth;
+        fifth.next=six;
+        six.next=third;
+            
+    }
+    public Listnode startingloop(){
+        Listnode slowptr=head;
+        Listnode fast=head;
+        while(fast!=null&&fast.next!=null){
+            fast=fast.next.next;
+            slowptr=slowptr.next;
+            if(fast==slowptr){
+                return getstartingnode(slowptr);
+            }
+        }
+        return null;
+    }
+    private Listnode getstartingnode(Listnode slowptr) {
+        Listnode temp=head;
+        while(temp!=slowptr){
+            slowptr=slowptr.next;
+            temp=temp.next;
+        }
+        return temp;
+    }
+    public void removeloop(){
+        Listnode slowptr=head;
+        Listnode fast=head;
+        while(fast!=null&&fast.next!=null){
+            fast=fast.next.next;
+            slowptr=slowptr.next;
+            if(fast==slowptr){
+                removestarting(slowptr);
+                return;
+            }
+        }
+    }
+    private void removestarting(Listnode slowptr) {
+        Listnode temp=head;
+        while(temp.next!=slowptr.next){
+            slowptr=slowptr.next;
+            temp=temp.next;
+
+        }
+         slowptr.next=null;
     }
     public static void main(String[] args) {
         practice sll=new practice();
-        sll.head=new Listnode(10);
-        Listnode second=new Listnode(10);
-        Listnode third=new Listnode(12);
-        Listnode fourth=new Listnode(13);
-        sll.head.next=second;
-        second.next=third;
-        third.next=fourth;
-        sll.display(sll.head);
-        sll.count();
-        sll.insertfirst(9);
-        sll.display(sll.head);      
-        sll.insertlast(14);
-        sll.display(sll.head);
-        sll.insertlast(15);
-        sll.display(sll.head);
-        sll.insertatpos(5,2);
-        sll.display(sll.head);
-        sll.insertatpos(6,3);
-        sll.display(sll.head);
-        sll.insertatpos(4,1);
-        sll.display(sll.head);
-        System.out.println(sll.deleteatpos(2).data);
-        sll.display(sll.head);
-        System.out.println(sll.deleteatpos(5).data);
-        sll.display(sll.head);
-        System.out.println(sll.deleteatpos(1).data);
-        sll.display(sll.head);
-        // Listnode rev=sll.reverse(sll.head);
-        // sll.display(rev);
-        Listnode middlenode=sll.middle();
-        System.out.println(middlenode.data);
-        Listnode nthnode=sll.nthnode(2);
-        System.out.println(nthnode.data);
-        sll.removeduplicate();
+        // sll.head=new Listnode(10);
+        // Listnode second=new Listnode(10);
+        // Listnode third=new Listnode(12);
+        // Listnode fourth=new Listnode(13);
+        // sll.head.next=second;
+        // second.next=third;
+        // third.next=fourth;
+        // sll.display(sll.head);
+        // sll.count();
+        // sll.insertfirst(9);
+        // sll.display(sll.head);      
+        // sll.insertlast(14);
+        // sll.display(sll.head);
+        // sll.insertlast(15);
+        // sll.display(sll.head);
+        // sll.insertatpos(5,2);
+        // sll.display(sll.head);
+        // sll.insertatpos(6,3);
+        // sll.display(sll.head);
+        // sll.insertatpos(4,1);
+        // sll.display(sll.head);
+        // System.out.println(sll.deleteatpos(2).data);
+        // sll.display(sll.head);
+        // System.out.println(sll.deleteatpos(5).data);
+        // sll.display(sll.head);
+        // System.out.println(sll.deleteatpos(1).data);
+        // sll.display(sll.head);
+        // // Listnode rev=sll.reverse(sll.head);
+        // // sll.display(rev);
+        // Listnode middlenode=sll.middle();
+        // System.out.println(middlenode.data);
+        // Listnode nthnode=sll.nthnode(2);
+        // System.out.println(nthnode.data);
+        // sll.removeduplicate();
+        // sll.display(sll.head);
+        // sll.insertnodesorted(7);
+        // sll.display(sll.head);
+        // sll.deletekay(13);
+        // sll.display(sll.head);
+        // sll.detectloop();
+        //1-->2-->3-->4-->5
+            //|\\- - ||
+
+        sll.createaloopinlinkedlist();
+
+        System.out.println(sll.detectloop());
+
+        // System.out.println(sll.startingloop().data);
+
+        sll.removeloop();
+
+        System.out.println(sll.detectloop());
+        
         sll.display(sll.head);
 
     }

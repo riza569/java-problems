@@ -101,7 +101,7 @@ public class circularlinkedlist {
         }
         public static void main(String[] args) {
             circularlinkedlist csll=new circularlinkedlist();
-
+            
             csll.createcircularlinkedlist();
             csll.display();
             csll.insertfirst(16);
@@ -113,12 +113,6 @@ public class circularlinkedlist {
             csll.deletelast();
             csll.display();
           
-
-
-
-
-
-
 
         }
     }

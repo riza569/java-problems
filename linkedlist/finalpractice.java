@@ -1,4 +1,6 @@
-    public class finalpractice {
+import java.util.List;
+
+public class finalpractice {
         private Listnode head;
         public static class  Listnode {
             int data;
@@ -228,6 +230,28 @@
                 }
                 return dummy.next;
             }
+            
+            public static Listnode add(Listnode a,Listnode b){
+                Listnode dummy=new Listnode(11);
+                Listnode tail=dummy;
+                int carry=0;
+                while(a!=null || b!=null){
+                    int x=a!=null?a.data:0;
+                    int y=b!=null?b.data:0;
+                    int sum=carry+x+y;
+                    carry=sum/10;
+                    tail.next=new Listnode(sum%10);
+                    tail=tail.next;
+                    if(a!=null)
+                    a=a.next;
+                    if(b!=null)
+                    b=b.next;
+                }
+                if(carry>0){
+                    tail.next=new Listnode(carry);
+                }
+                return dummy.next;
+            }
         public static void main(String[] args) {
             finalpractice sll1=new finalpractice(); 
             finalpractice sll2=new finalpractice(); 
@@ -282,8 +306,9 @@
             sll2.insertlast(19);
             sll2.display();
             finalpractice res=new finalpractice();
-            res.head=mergetwosortedll(sll1.head,sll2.head);
+            res.head=add(sll1.head,sll2.head);
             res.display();
+            
             
 
 

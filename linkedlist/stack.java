@@ -48,7 +48,7 @@ public class stack {
         System.out.println(st.peek());
         st.pop();
         System.out.println(st.peek());
-
+        
     }
 
 }

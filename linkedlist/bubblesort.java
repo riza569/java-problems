@@ -26,23 +26,23 @@ public class bubblesort{
        for(int i=low;i<=high;i++ ){
         temp[i]=arr[i];
        }
-       int i=low,j=mid+1,k=low;
-       while(i<=mid && j<=high){
-        if(temp[i]<=temp[j])
+       int left=low,right=mid+1,k=low;
+       while(left<=mid && right<=high){
+        if(temp[left]<=temp[right])
         {
-            arr[k]=temp[i];
-            i++;
+            arr[k]=temp[left];
+            left++;
         }
         else{
-            arr[k]=temp[j];
-            j++;
+            arr[k]=temp[right];
+            right++;
         }
         k++;
        }
 
-       while(i<=mid){
-        arr[k]=temp[i];
-        i++;
+       while(left<=mid){
+        arr[k]=temp[left];
+        left++;
         k++;
        }
     }

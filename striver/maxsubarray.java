@@ -18,11 +18,10 @@ public class maxsubarray {
                 ans_start=start;
                 ans_end=i;
             }
+
             if(sum<0){
             sum=0;
-
-            
-
+           
         }
     }
         System.out.println("sum found from "+ ans_start+" to "+ans_end);
